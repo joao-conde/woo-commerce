@@ -30,6 +30,16 @@ services:
       WPS_DEBUG_DOM: true
       WPS_DEBUG_STYLES: true
       WPS_DEBUG_SCRIPTS: true
+  woocommerce:
+    depends_on:
+      - wordpress
+    image: wordpress:latest
+    volumes:
+      - ./woocommerce-setup.sh:/woocommerce-setup.sh
+    restart: "no"
+    entrypoint:
+      - docker-entrypoint.sh
+      - woocommerce-setup.sh     
 volumes:
   db_data: {}
   wordpress_data: {}
