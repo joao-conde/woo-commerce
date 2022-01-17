@@ -9,6 +9,8 @@ WooCommerce Due Diligence
 ## Development Setup
 
 https://github.com/woocommerce/woocommerce/wiki/How-to-set-up-WooCommerce-development-environment
+https://docs.docker.com/samples/wordpress/
+https://dev.to/daniloab/how-to-run-wordpress-woocommerce-locally-with-docker-42cd
 
 ## How does it work?
 
