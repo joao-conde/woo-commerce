@@ -16,6 +16,7 @@ services:
       - db
     image: wordpress:latest
     volumes:
+      - ./bridge:/var/www/html/wp-content/plugins/bridge
       - ./wordpress:/var/www/html
       - ./plugins:/var/www/html/wp-content/plugins
     ports:
