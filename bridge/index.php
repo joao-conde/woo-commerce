@@ -5,9 +5,9 @@
  */
 /*
 Plugin Name: Bridge
-Plugin URI: http://wordpress.org/plugins/hello-dolly/
+Plugin URI: https://github.com/ripe-tech/ripe-bridge
 Description: Bridge Plugin by Platforme MTO.
 Author: Platforme MTO
 Version: 0.0.1
-Author URI: https://www.platforme.com/
+Author URI: https://github.com/ripe-tech
 */
