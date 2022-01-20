@@ -1,4 +1,5 @@
-version: "3.9"
+version: '3'
+
 services:
   db:
     image: mysql:5.7
@@ -10,10 +11,11 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
+
   wordpress:
     depends_on:
       - db
-    image: wordpress:latest
+    build: .
     volumes:
       - ./bridge:/var/www/html/wp-content/plugins/bridge
     ports:
@@ -29,17 +31,8 @@ services:
       WPS_DEBUG: true
       WPS_DEBUG_DOM: true
       WPS_DEBUG_STYLES: true
-      WPS_DEBUG_SCRIPTS: true
-  woocommerce:
-    depends_on:
-      - wordpress
-    image: wordpress:latest
-    volumes:
-      - ./woocommerce-setup.sh:/woocommerce-setup.sh
-    restart: "no"
-    entrypoint:
-      - docker-entrypoint.sh
-      - woocommerce-setup.sh     
+      WPS_DEBUG_SCRIPTS: true 
+
 volumes:
   db_data: {}
   wordpress_data: {}
