@@ -13,6 +13,7 @@ Author URI: https://github.com/ripe-tech
 */
 defined("ABSPATH") or die;
 
+
 class BridgePlugin {
 	function activate() {
 		echo "The plugin was activated";
