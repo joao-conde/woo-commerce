@@ -1,1 +1,1 @@
-console.log("WAT")
+console.log("index.js loaded")

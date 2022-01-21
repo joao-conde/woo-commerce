@@ -11,20 +11,24 @@ Author: Platforme MTO
 Version: 0.0.1
 Author URI: https://github.com/ripe-tech
 */
+
 defined("ABSPATH") or die;
 
-class BridgePlugin {
-	function activate() {
-		echo "The plugin was activated";
-	}
+function activate() {
 
-	function deactivate() {
-		echo "The plugin was deactivated";
-	}
+}
 
-	function uninstall() {
+function deactivate() {
+	
+}
 
-	}
+function uninstall() {
+	
+}
+
+function load_assets() {
+    wp_enqueue_style("style", plugins_url('/assets/index.css', __FILE__));
+    wp_enqueue_script("script", plugins_url('/assets/index.js', __FILE__));
 }
 
 function add_customize_button($add_to_cart_button) {
@@ -34,30 +38,16 @@ function add_customize_button($add_to_cart_button) {
 
 function checkout_order_created($order) {
 	var_dump($order);
-	die("checkout_order_created");
 }
 
-function checkout_order_processed($order_id, $posted_data, $order) {
-	var_dump($order);
-	die("checkout_order_processed");
-}
+register_activation_hook(__FILE__, "activate");
 
-function callback_for_setting_up_scripts() {
-    wp_register_style( 'style', '/assets/index.css' );
-    wp_enqueue_style( 'style' );
-    wp_enqueue_script( 'script', '/assets/index.js' );
-}
+register_deactivation_hook(__FILE__, "deactivate");
 
-if (class_exists("BridgePlugin")) $bridge_plugin = new BridgePlugin();
+register_uninstall_hook(__FILE__, "uninstall");
 
-register_activation_hook(__FILE__, array($bridge_plugin, "activate"));
+add_action('wp_enqueue_scripts', 'load_assets');
 
-register_deactivation_hook(__FILE__, array($bridge_plugin, "deactivate"));
+add_action("woocommerce_loop_add_to_cart_link", 'add_customize_button');
 
-add_action('wp_enqueue_scripts', 'callback_for_setting_up_scripts');
-
-add_action("woocommerce_loop_add_to_cart_link", 'add_customize_button', 10, 1);
-
-add_action('woocommerce_checkout_order_created', 'checkout_order_created', 10, 1);
-
-add_action('woocommerce_checkout_order_processed', 'checkout_order_processed', 10, 3);
+add_action('woocommerce_checkout_order_created', 'checkout_order_created');
