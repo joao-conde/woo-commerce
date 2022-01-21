@@ -1,0 +1,1 @@
+docker system prune --force --volumes && docker-compose rm -f && docker-compose up --build --force-recreate

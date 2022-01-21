@@ -1,0 +1,1 @@
+docker exec -it woo-commerce_wordpress_1 wp-themes-setup
