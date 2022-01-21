@@ -26,12 +26,12 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
-      WP_DEBUG: true
-      WP_DEBUG_LOG: true
-      WPS_DEBUG: true
-      WPS_DEBUG_DOM: true
-      WPS_DEBUG_STYLES: true
-      WPS_DEBUG_SCRIPTS: true 
+      WP_DEBUG: "true"
+      WP_DEBUG_LOG: "true"
+      WPS_DEBUG: "true"
+      WPS_DEBUG_DOM: "true"
+      WPS_DEBUG_STYLES: "true"
+      WPS_DEBUG_SCRIPTS: "true" 
 
 volumes:
   db_data: {}
