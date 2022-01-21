@@ -12,7 +12,7 @@ Version: 0.0.1
 Author URI: https://github.com/ripe-tech
 */
 
-defined("ABSPATH") or die;
+defined("ABSPATH") || die;
 
 function activate() {
 
@@ -32,11 +32,11 @@ function load_assets() {
 }
 
 function add_customize_button($add_to_cart_button) {
-	$add_to_cart_button .= "<button type='button'>Customize</button>";
-	return $add_to_cart_button;
+	$customize_button = file_get_contents(plugin_dir_path( __FILE__ ) . 'assets/templates/button.html');
+	return $add_to_cart_button . $customize_button;
 }
 
-function checkout_order_created($order) {
+function import_order($order) {
 	var_dump($order);
 }
 
@@ -50,4 +50,4 @@ add_action('wp_enqueue_scripts', 'load_assets');
 
 add_action("woocommerce_loop_add_to_cart_link", 'add_customize_button');
 
-add_action('woocommerce_checkout_order_created', 'checkout_order_created');
+add_action('woocommerce_checkout_order_created', 'import_order');
