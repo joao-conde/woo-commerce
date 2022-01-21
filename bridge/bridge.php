@@ -37,7 +37,19 @@ function add_customize_button($add_to_cart_button) {
 }
 
 function import_order($order) {
-	var_dump($order);
+	// fake key and URL
+	$url = "http://ecf5-213-22-16-106.ngrok.io/api/orders/import";
+    $data = wp_remote_post($url, array(
+		"method" => "POST",
+		"headers" => array(
+			'"X-Secret-Key' => 'd8b2dc1fdf506d640a6143564680d5892f6f5531',
+			'Content-Type' => 'application/json; charset=utf-8'
+		),
+        'body' => json_encode(array( 
+			'ff_order_id' => $order->get_id()
+		)),
+		'data_format' => 'body'
+    ));
 }
 
 register_activation_hook(__FILE__, "activate");
