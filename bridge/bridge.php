@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
+die("THIS RUNS")
 
 add_action('woocommerce_checkout_order_created', 'checkout_order_created', 10, 1);
 add_action('woocommerce_checkout_order_processed', 'checkout_order_processed', 10, 3);
