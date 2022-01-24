@@ -1,0 +1,1 @@
+docker exec -it wordpress-container wp-themes-setup

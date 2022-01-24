@@ -6,5 +6,5 @@ RUN mv /bin/wp-cli.phar /bin/wp
 RUN chmod +x /bin/wp
 
 # copy setup script
-COPY ./wp-themes-setup.sh ./wp-themes-setup.sh 
+COPY ./scripts/wp-themes-setup.sh ./wp-themes-setup.sh 
 RUN mv ./wp-themes-setup.sh /bin/wp-themes-setup && chmod +x /bin/wp-themes-setup
