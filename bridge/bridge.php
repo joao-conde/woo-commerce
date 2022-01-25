@@ -60,6 +60,6 @@ register_uninstall_hook(__FILE__, "uninstall");
 
 add_action('wp_enqueue_scripts', 'load_assets');
 
-add_action("woocommerce_loop_add_to_cart_link", 'add_customize_button');
+add_filter("woocommerce_loop_add_to_cart_link", 'add_customize_button');
 
 add_action('woocommerce_checkout_order_created', 'import_order');
